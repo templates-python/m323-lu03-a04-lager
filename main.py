@@ -9,6 +9,7 @@ def manage_inventory(products, calculation_function, *args):
     :param *args: Weitere Argumente, die von der Berechnungsfunktion benötigt werden könnten
     :return: Die Berechnungsfunktion mit den Produkten und allenfalls zusätzlichen Argumente
     """
+    return calculation_function(products, *args)
 
 
 def calculate_average_price(products):
@@ -18,6 +19,9 @@ def calculate_average_price(products):
     :param products: Liste von Produkten
     :return: Durchschnittspreis der Produkte
     """
+    total_price = sum(product['price'] for product in products)
+    average_price = total_price / len(products)
+    return average_price
 
 
 def calculate_total_value(products):
@@ -29,6 +33,10 @@ def calculate_total_value(products):
     :param products: Liste von Produkten, jedes Produkt ist ein Dictionary mit 'name', 'price' und 'stock'
     :return: Gesamtwert der Produkte im Lagerbestand
     """
+    total_value = 0
+    for product in products:
+        total_value += product['price'] * product['stock']
+    return total_value
 
 
 def filter_products_by_stock(products, min_stock):
@@ -41,21 +49,37 @@ def filter_products_by_stock(products, min_stock):
     :param min_stock: Die minimale Bestandsmenge, die ein Produkt haben muss, um in die Ergebnisliste aufgenommen zu werden
     :return: Liste der gefilterten Produkte
     """
+    filtered_products = []
+    for product in products:
+        if product['stock'] >= min_stock:
+            filtered_products.append(product)
+    return filtered_products
 
 
 if __name__ == '__main__':
     # Produktliste: Eine Liste von Produkten, wobei jedes Produkt ein Dictionary mit den Eigenschaften 'name', 'price' und 'stock' ist.
-    products = [{'name': 'Laptop', 'price': 800, 'stock': 5}, {'name': 'Smartphone', 'price': 500, 'stock': 10},
-                {'name': 'Headphones', 'price': 50, 'stock': 20}, {'name': 'Keyboard', 'price': 20, 'stock': 30},
-                {'name': 'Monitor', 'price': 150, 'stock': 15}, {'name': 'Mouse', 'price': 10, 'stock': 40},
-                {'name': 'Printer', 'price': 200, 'stock': 10}, {'name': 'Tablet', 'price': 300, 'stock': 12},
-                {'name': 'Desk Chair', 'price': 100, 'stock': 7}, {'name': 'USB Drive', 'price': 5, 'stock': 100},
-                {'name': 'External Hard Drive', 'price': 80, 'stock': 20},
-                {'name': 'Microphone', 'price': 40, 'stock': 25},
-                {'name': 'Webcam', 'price': 30, 'stock': 15}, {'name': 'Projector', 'price': 400, 'stock': 8},
-                {'name': 'Speaker', 'price': 35, 'stock': 30}, {'name': 'Smartwatch', 'price': 150, 'stock': 14},
-                {'name': 'Phone Charger', 'price': 10, 'stock': 50}, {'name': 'Laptop Bag', 'price': 25, 'stock': 30},
-                {'name': 'HDMI Cable', 'price': 10, 'stock': 40}, {'name': 'WiFi Router', 'price': 60, 'stock': 12}]
+    products = [
+        {'name': 'Laptop', 'price': 800, 'stock': 5},
+        {'name': 'Smartphone', 'price': 500, 'stock': 10},
+        {'name': 'Headphones', 'price': 50, 'stock': 20},
+        {'name': 'Keyboard', 'price': 20, 'stock': 30},
+        {'name': 'Monitor', 'price': 150, 'stock': 15},
+        {'name': 'Mouse', 'price': 10, 'stock': 40},
+        {'name': 'Printer', 'price': 200, 'stock': 10},
+        {'name': 'Tablet', 'price': 300, 'stock': 12},
+        {'name': 'Desk Chair', 'price': 100, 'stock': 7},
+        {'name': 'USB Drive', 'price': 5, 'stock': 100},
+        {'name': 'External Hard Drive', 'price': 80, 'stock': 20},
+        {'name': 'Microphone', 'price': 40, 'stock': 25},
+        {'name': 'Webcam', 'price': 30, 'stock': 15},
+        {'name': 'Projector', 'price': 400, 'stock': 8},
+        {'name': 'Speaker', 'price': 35, 'stock': 30},
+        {'name': 'Smartwatch', 'price': 150, 'stock': 14},
+        {'name': 'Phone Charger', 'price': 10, 'stock': 50},
+        {'name': 'Laptop Bag', 'price': 25, 'stock': 30},
+        {'name': 'HDMI Cable', 'price': 10, 'stock': 40},
+        {'name': 'WiFi Router', 'price': 60, 'stock': 12}
+    ]
 
     # Test: Berechnung des durchschnittlichen Preises
     average_price = manage_inventory(products, calculate_average_price)
