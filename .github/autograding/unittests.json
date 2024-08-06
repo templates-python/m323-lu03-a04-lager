@@ -1,0 +1,32 @@
+[
+  {
+    "name": "test_calculate_average_price",
+    "function": "test_calculate_average_price",
+    "timeout": 10,
+    "points": 1
+  },
+  {
+    "name": "test_calculate_total_value",
+    "function": "test_calculate_total_value",
+    "timeout": 10,
+    "points": 1
+  },
+  {
+    "name": "test_filter_products_by_stock",
+    "function": "test_filter_products_by_stock",
+    "timeout": 10,
+    "points": 1
+  },
+  {
+    "name": "test_manage_inventory_sum_price",
+    "function": "test_manage_inventory_sum_price",
+    "timeout": 10,
+    "points": 1
+  },
+  {
+    "name": "test_manage_inventory_filter_low_stock",
+    "function": "test_manage_inventory_filter_low_stock",
+    "timeout": 10,
+    "points": 1
+  }
+]
