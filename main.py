@@ -78,7 +78,7 @@ if __name__ == '__main__':
         {'name': 'Phone Charger', 'price': 10, 'stock': 50},
         {'name': 'Laptop Bag', 'price': 25, 'stock': 30},
         {'name': 'HDMI Cable', 'price': 10, 'stock': 40},
-        {'name': 'WiFi Router', 'price': 60, 'stock': 12}
+        {'name': 'WiFi Router', 'price': 60, 'stock': 12},
     ]
 
     # Test: Berechnung des durchschnittlichen Preises
@@ -96,5 +96,9 @@ if __name__ == '__main__':
     for product in filtered_products:
         print(product)
 
-    average_price_min_stock = manage_inventory(filtered_products, calculate_average_price)
-    print(f'Durchschnittlicher Preis der Produkte wo min_stock=20: {average_price_min_stock:.2f}€')
+    average_price_min_stock = manage_inventory(
+        filtered_products, calculate_average_price
+    )
+    print(
+        f'Durchschnittlicher Preis der Produkte wo min_stock=20: {average_price_min_stock:.2f}€'
+    )
