@@ -45,17 +45,28 @@ def filter_products_by_stock(products, min_stock):
 
 if __name__ == '__main__':
     # Produktliste: Eine Liste von Produkten, wobei jedes Produkt ein Dictionary mit den Eigenschaften 'name', 'price' und 'stock' ist.
-    products = [{'name': 'Laptop', 'price': 800, 'stock': 5}, {'name': 'Smartphone', 'price': 500, 'stock': 10},
-                {'name': 'Headphones', 'price': 50, 'stock': 20}, {'name': 'Keyboard', 'price': 20, 'stock': 30},
-                {'name': 'Monitor', 'price': 150, 'stock': 15}, {'name': 'Mouse', 'price': 10, 'stock': 40},
-                {'name': 'Printer', 'price': 200, 'stock': 10}, {'name': 'Tablet', 'price': 300, 'stock': 12},
-                {'name': 'Desk Chair', 'price': 100, 'stock': 7}, {'name': 'USB Drive', 'price': 5, 'stock': 100},
-                {'name': 'External Hard Drive', 'price': 80, 'stock': 20},
-                {'name': 'Microphone', 'price': 40, 'stock': 25},
-                {'name': 'Webcam', 'price': 30, 'stock': 15}, {'name': 'Projector', 'price': 400, 'stock': 8},
-                {'name': 'Speaker', 'price': 35, 'stock': 30}, {'name': 'Smartwatch', 'price': 150, 'stock': 14},
-                {'name': 'Phone Charger', 'price': 10, 'stock': 50}, {'name': 'Laptop Bag', 'price': 25, 'stock': 30},
-                {'name': 'HDMI Cable', 'price': 10, 'stock': 40}, {'name': 'WiFi Router', 'price': 60, 'stock': 12}]
+    products = [
+        {'name': 'Laptop', 'price': 800, 'stock': 5},
+        {'name': 'Smartphone', 'price': 500, 'stock': 10},
+        {'name': 'Headphones', 'price': 50, 'stock': 20},
+        {'name': 'Keyboard', 'price': 20, 'stock': 30},
+        {'name': 'Monitor', 'price': 150, 'stock': 15},
+        {'name': 'Mouse', 'price': 10, 'stock': 40},
+        {'name': 'Printer', 'price': 200, 'stock': 10},
+        {'name': 'Tablet', 'price': 300, 'stock': 12},
+        {'name': 'Desk Chair', 'price': 100, 'stock': 7},
+        {'name': 'USB Drive', 'price': 5, 'stock': 100},
+        {'name': 'External Hard Drive', 'price': 80, 'stock': 20},
+        {'name': 'Microphone', 'price': 40, 'stock': 25},
+        {'name': 'Webcam', 'price': 30, 'stock': 15},
+        {'name': 'Projector', 'price': 400, 'stock': 8},
+        {'name': 'Speaker', 'price': 35, 'stock': 30},
+        {'name': 'Smartwatch', 'price': 150, 'stock': 14},
+        {'name': 'Phone Charger', 'price': 10, 'stock': 50},
+        {'name': 'Laptop Bag', 'price': 25, 'stock': 30},
+        {'name': 'HDMI Cable', 'price': 10, 'stock': 40},
+        {'name': 'WiFi Router', 'price': 60, 'stock': 12},
+    ]
 
     # Test: Berechnung des durchschnittlichen Preises
     average_price = manage_inventory(products, calculate_average_price)
@@ -72,5 +83,9 @@ if __name__ == '__main__':
     for product in filtered_products:
         print(product)
 
-    average_price_min_stock = manage_inventory(filtered_products, calculate_average_price)
-    print(f'Durchschnittlicher Preis der Produkte wo min_stock=20: {average_price_min_stock:.2f}€')
+    average_price_min_stock = manage_inventory(
+        filtered_products, calculate_average_price
+    )
+    print(
+        f'Durchschnittlicher Preis der Produkte wo min_stock=20: {average_price_min_stock:.2f}€'
+    )
